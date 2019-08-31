@@ -1,9 +1,9 @@
 using System;
 namespace hackertests.Tests
 {
-    public class fibonacci
+    public class Fibonacci : ITestProgram
     {
-        public fibonacci()
+        public Fibonacci()
         {
 
         }
@@ -49,9 +49,9 @@ namespace hackertests.Tests
             err = $"The number {FibNumber} was not a fibonachi number.";
             return null;
         }
-        public void fibonacciTests()
+
+        public void RunTests()
         {
-            
             Console.WriteLine($" 0 : {nthFibonacci(0)}");
             Console.WriteLine($" 1 : {nthFibonacci(1)}");
             Console.WriteLine($" 3 : {nthFibonacci(3)}");
@@ -64,6 +64,5 @@ namespace hackertests.Tests
             if (!string.IsNullOrEmpty(err))
                 System.Console.WriteLine(err);
         }
-
     }
 }

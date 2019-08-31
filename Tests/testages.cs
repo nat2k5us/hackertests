@@ -22,10 +22,10 @@ namespace hackertests.Tests
         EqualTo,
         GreaterThan
     }
-    public class TestAges
+    public class TestAges : ITestProgram
     {
         List<Neighbour> _neighbours { get; set; }
-        public int combinedAge { get ; set; }
+        public int combinedAge { get; set; }
         public TestAges()
         {
             _neighbours = new List<Neighbour> {
@@ -52,7 +52,7 @@ namespace hackertests.Tests
 
         public List<Neighbour> GetNeighboursbyName(string name)
         {
-             var result = GetNeighboursbyAge(40, Condition.LessThan);
+            var result = GetNeighboursbyAge(40, Condition.LessThan);
             return result.Where(x => x.Name.Equals(name)).ToList();
         }
 

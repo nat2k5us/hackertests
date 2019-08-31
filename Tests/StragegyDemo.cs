@@ -49,7 +49,7 @@ namespace hackertests.Tests
         }
     }
 
-    public class StragetyClient
+    public class StragetyClient : ITestProgram
     {
         ICommutestrategy commutestrategy;
 

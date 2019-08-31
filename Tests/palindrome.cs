@@ -3,9 +3,9 @@ using System;
 using System.Linq;
 namespace hackertests.Tests
 {
-    public class palindrome
+    public class Palindrome: ITestProgram
     {
-        public palindrome()
+        public Palindrome()
         {
 
         }
@@ -63,7 +63,6 @@ namespace hackertests.Tests
 
             System.Console.WriteLine($"is Palindrome {test1} {isStringPalindrome(test1)}");
             System.Console.WriteLine($"is Palindrome {test2} {isStringPalindrome(test2)}");
-
             System.Console.WriteLine($"is isPalindromeAble {test3} {isPalindromeAble(test3)}");
         }
     }

@@ -3,7 +3,7 @@ using NetSpell.SpellChecker;
 
 namespace hackertests.Tests
 {
-    public class DictionaryWords
+    public class DictionaryWords : ITestProgram
     {
         Spelling SpellChecker;
         public DictionaryWords()

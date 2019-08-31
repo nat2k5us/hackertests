@@ -25,16 +25,16 @@ namespace hackertests.Tests
         }
     }
     // client want to call the legacy method but cannot do to legacy reasons
-    public class AdapterClient // new up the Adaptor
+    public class AdapterClient : ITestProgram // new up the Adaptor
     {
         ITarget target;
         public AdapterClient()
         {
             target = new Adaptor();
         }
-        public void DoSomething()
+        public void RunTests()
         {
-             System.Console.WriteLine($"Client calls the method on the ITarget or Adapter");
+            System.Console.WriteLine($"Client calls the method on the ITarget or Adapter");
             target.ClientRequiredMethod();
         }
     }

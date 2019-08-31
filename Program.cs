@@ -11,43 +11,48 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using hackertests.Tests;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace hackertests
 {
     class Program
     {
-        // Complete the hourglassSum function below.
-        static int hourglassSum(int[][] arr)
+
+        private static void ConfigureServices(IServiceCollection serviceCollection)
         {
-            Console.WriteLine($"{arr.GetUpperBound(0)}");
-            return -1;
+            // add services
+            serviceCollection.AddTransient<ITestProgram, FizzBizz>();
+             serviceCollection.AddTransient<ITestProgram, ArrayTests>();
+            // serviceCollection.AddTransient<ITestProgram, Fibonacci>();
+            // serviceCollection.AddTransient<ITestProgram, DictionaryWords>();
+            // serviceCollection.AddTransient<ITestProgram, MlastElement>();
+            // serviceCollection.AddTransient<ITestProgram, Palindrome>();
+            // serviceCollection.AddTransient<ITestProgram, Recursion>();
+            // serviceCollection.AddTransient<ITestProgram, StragetyClient>();
+            // serviceCollection.AddTransient<ITestProgram, AdapterClient>();
+            // serviceCollection.AddTransient<ITestProgram, StringArrayTests>();
+            // serviceCollection.AddTransient<ITestProgram, TestAges>();
+            // add app
+            serviceCollection.AddTransient<ConsoleApplication>();
         }
 
         static void Main(string[] args)
         {
+            // create service collection
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+
+            // create service provider
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            // entry to run app
+            serviceProvider.GetService<ConsoleApplication>().Run();
+
             string directoryName = AppDomain.CurrentDomain.BaseDirectory;
             if (directoryName == null) return;
             Console.WriteLine($"dir: {directoryName}");
 
-            MLast.RunTest();
-
-            var fibonacci = new fibonacci();
-            fibonacci.fibonacciTests();
-
-            var palindrome = new palindrome();
-            palindrome.RunTests();
-
-            var testAges = new TestAges();
-            testAges.RunTests();
-
-            var adapterClient = new AdapterClient();
-            adapterClient.DoSomething();
-
-            //var spellcheck = new DictionaryWords();
-            //spellcheck.RunTests();
-
-            var stragetyClient = new StragetyClient();
-            stragetyClient.RunTests();
         }
     }
 }
