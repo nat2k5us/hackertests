@@ -65,5 +65,10 @@ namespace hackertests.Tests
             System.Console.WriteLine($"is Palindrome {test2} {isStringPalindrome(test2)}");
             System.Console.WriteLine($"is isPalindromeAble {test3} {isPalindromeAble(test3)}");
         }
+
+        public object GetObject()
+        {
+            return $"Palindrome Pattern";
+        }
     }
 }

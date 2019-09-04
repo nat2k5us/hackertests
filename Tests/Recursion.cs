@@ -9,7 +9,12 @@ namespace hackertests.Tests
                 return 1;    
             return number * Factorial(number-1);//Recursive call    
     
-        }  
+        }
+
+        public object GetObject()
+        {
+            return $"Recursion";
+        }
 
         public void RunTests()
         {

@@ -59,6 +59,11 @@ namespace hackertests.Tests
             commutestrategy = new PersonelCar();
         }
 
+        public object GetObject()
+        {
+           return $"Stratagy Pattern";
+        }
+
         public void RunTests()
         {
 

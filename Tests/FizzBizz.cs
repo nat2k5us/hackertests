@@ -2,6 +2,7 @@ using System;
 
 namespace hackertests.Tests
 {
+  
     public class FizzBizz : ITestProgram
     {
         public void FizzBizzProcess(int range)
@@ -28,6 +29,11 @@ namespace hackertests.Tests
             }
             System.Console.WriteLine();
             System.Console.WriteLine(consoleMessage);
+        }
+
+        public object GetObject()
+        {
+            return $"FizzBizz";
         }
 
         public void RunTests()

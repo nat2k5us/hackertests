@@ -71,5 +71,10 @@ namespace hackertests.Tests
             // empty the neighbours array
             this._neighbours.Clear();
         }
+
+        public object GetObject()
+        {
+            return $"Test Ages";
+        }
     }
 }

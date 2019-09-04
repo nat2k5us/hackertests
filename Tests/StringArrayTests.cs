@@ -5,6 +5,11 @@ namespace hackertests.Tests
 {
     public class StringArrayTests : ITestProgram
     {
+        public object GetObject()
+        {
+           return $"StringArray Tests";
+        }
+
         public string ReverseString(string str)
         {
             var returnStr = new List<char>();

@@ -14,6 +14,11 @@ namespace hackertests.Tests
 
         }
 
+         public object GetObject()
+        {
+            return $"MLast Element";
+        }
+
         public  void RunTests()
         {
             List<int> arryNumbers = new List<int> { 10, 200, 3, 4000, 5 };

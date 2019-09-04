@@ -32,6 +32,12 @@ namespace hackertests.Tests
         {
             target = new Adaptor();
         }
+
+        public object GetObject()
+        {
+            return $"Adapter Pattern";
+        }
+
         public void RunTests()
         {
             System.Console.WriteLine($"Client calls the method on the ITarget or Adapter");

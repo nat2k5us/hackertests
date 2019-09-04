@@ -64,5 +64,10 @@ namespace hackertests.Tests
             if (!string.IsNullOrEmpty(err))
                 System.Console.WriteLine(err);
         }
+
+         public object GetObject()
+        {
+            return $"Fibonacci Pattern";
+        }
     }
 }

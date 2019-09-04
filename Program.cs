@@ -22,17 +22,17 @@ namespace hackertests
         private static void ConfigureServices(IServiceCollection serviceCollection)
         {
             // add services
-            serviceCollection.AddTransient<ITestProgram, FizzBizz>();
-             serviceCollection.AddTransient<ITestProgram, ArrayTests>();
-            // serviceCollection.AddTransient<ITestProgram, Fibonacci>();
-            // serviceCollection.AddTransient<ITestProgram, DictionaryWords>();
-            // serviceCollection.AddTransient<ITestProgram, MlastElement>();
-            // serviceCollection.AddTransient<ITestProgram, Palindrome>();
-            // serviceCollection.AddTransient<ITestProgram, Recursion>();
-            // serviceCollection.AddTransient<ITestProgram, StragetyClient>();
-            // serviceCollection.AddTransient<ITestProgram, AdapterClient>();
-            // serviceCollection.AddTransient<ITestProgram, StringArrayTests>();
-            // serviceCollection.AddTransient<ITestProgram, TestAges>();
+            serviceCollection.AddSingleton<ITestProgram, FizzBizz>();
+            serviceCollection.AddTransient<ITestProgram, ArrayTests>();
+            serviceCollection.AddTransient<ITestProgram, Fibonacci>();
+            serviceCollection.AddTransient<ITestProgram, DictionaryWords>();
+            serviceCollection.AddTransient<ITestProgram, MlastElement>();
+            serviceCollection.AddTransient<ITestProgram, Palindrome>();
+            serviceCollection.AddTransient<ITestProgram, Recursion>();
+            serviceCollection.AddTransient<ITestProgram, StragetyClient>();
+            serviceCollection.AddTransient<ITestProgram, AdapterClient>();
+            serviceCollection.AddTransient<ITestProgram, StringArrayTests>();
+            serviceCollection.AddTransient<ITestProgram, TestAges>();
             // add app
             serviceCollection.AddTransient<ConsoleApplication>();
         }

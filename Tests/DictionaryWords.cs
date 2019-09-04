@@ -41,5 +41,10 @@ namespace hackertests.Tests
             SpellChecker.Text = "somethhuh";
             SpellChecker.SpellCheck();
         }
+
+        public object GetObject()
+        {
+            return $"Dictionary Words";
+        }
     }
 }

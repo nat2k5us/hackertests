@@ -33,5 +33,10 @@ namespace hackertests.Tests
             System.Console.WriteLine("TwoSumToTarget indexes for 18");
             TwoSumTarget(nums, 18).ToList().ForEach(x => System.Console.Write($"{x}, "));
         }
+
+        public object GetObject()
+        {
+            return $"Array Tests";
+        }
     }
 }
