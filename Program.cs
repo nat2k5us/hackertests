@@ -34,6 +34,7 @@ namespace hackertests
             serviceCollection.AddTransient<AdapterClient>();
             serviceCollection.AddTransient<StringArrayTests>();
             serviceCollection.AddTransient<TestAges>();
+            serviceCollection.AddTransient<ProxyPatternClient>();
             // add app
 
             serviceCollection.AddTransient<Func<TestProgramName, ITestProgram>>(
@@ -57,6 +58,8 @@ namespace hackertests
                         return serviceProvider.GetService<Palindrome>();
                     case TestProgramName.Recursion:
                         return serviceProvider.GetService<Recursion>();
+                    case TestProgramName.ProxyPattern:
+                        return serviceProvider.GetService<ProxyPatternClient>();
                     default:
                         throw new KeyNotFoundException();
                 }
@@ -83,8 +86,6 @@ namespace hackertests
 
             // create service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
-
-
           //  var programs = GetAllTypesOf<ITestProgram>();
 
           serviceProvider.GetService<Fibonacci>().RunTests();
@@ -95,11 +96,12 @@ namespace hackertests
           serviceProvider.GetService<TestAges>().RunTests();
           serviceProvider.GetService<Palindrome>().RunTests();
           serviceProvider.GetService<MlastElement>().RunTests();
+          serviceProvider.GetService<ProxyPatternClient>().RunTests();
             
           
             string directoryName = AppDomain.CurrentDomain.BaseDirectory;
             if (directoryName == null) return;
-            Console.WriteLine($"dir: {directoryName}");
+                Console.WriteLine($"dir: {directoryName}");
 
         }
     }
