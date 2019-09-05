@@ -14,7 +14,7 @@ namespace hackertests.Tests
         {
             var returnStr = new List<char>();
             var chars = str.ToCharArray();
-            for (int i = chars.Length - 1; i >=0; i--)
+            for (int i = chars.Length - 1; i >= 0; i--)
             {
                 returnStr.Add(chars[i]);
             }

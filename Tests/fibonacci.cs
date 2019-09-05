@@ -65,7 +65,7 @@ namespace hackertests.Tests
                 System.Console.WriteLine(err);
         }
 
-         public TestProgramName GetName(TestProgramName name)
+        public TestProgramName GetName(TestProgramName name)
         {
             return TestProgramName.Fibonacci;
         }

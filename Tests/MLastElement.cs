@@ -14,12 +14,12 @@ namespace hackertests.Tests
 
         }
 
-         public TestProgramName GetName(TestProgramName name)
+        public TestProgramName GetName(TestProgramName name)
         {
             return TestProgramName.MlastElement;
         }
 
-        public  void RunTests()
+        public void RunTests()
         {
             List<int> arryNumbers = new List<int> { 10, 200, 3, 4000, 5 };
             Console.WriteLine($"Mlast: { GetMlastElement(arryNumbers, 8) }");

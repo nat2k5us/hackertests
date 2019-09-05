@@ -59,7 +59,7 @@ namespace hackertests.Tests
             commutestrategy = new PersonelCar();
         }
 
-         public TestProgramName GetName(TestProgramName name)
+        public TestProgramName GetName(TestProgramName name)
         {
             return TestProgramName.StragetyClient;
         }

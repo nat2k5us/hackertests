@@ -42,7 +42,7 @@ namespace hackertests.Tests
             SpellChecker.SpellCheck();
         }
 
-         public TestProgramName GetName(TestProgramName name)
+        public TestProgramName GetName(TestProgramName name)
         {
             return TestProgramName.DictionaryWords;
         }

@@ -34,7 +34,7 @@ namespace hackertests.Tests
             TwoSumTarget(nums, 18).ToList().ForEach(x => System.Console.Write($"{x}, "));
         }
 
-         public TestProgramName GetName(TestProgramName name)
+        public TestProgramName GetName(TestProgramName name)
         {
             return TestProgramName.ArrayTests;
         }

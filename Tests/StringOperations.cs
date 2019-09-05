@@ -112,7 +112,7 @@ namespace interviews.Tests
             System.Console.WriteLine($"{Reverse(this.Sample)}");
             System.Console.WriteLine("Ordered Ints");
             OrderInts(this.ArrayOfInts).ToList().ForEach(x => System.Console.Write($"{x}, "));
-            
+
             System.Console.WriteLine(" RemoveRepeatingChars ");
             RemoveRepeatingChars(this.CharsArray).ToList().ForEach(x => System.Console.Write($"{x}, "));
             System.Console.WriteLine(" PackDuplicates ");

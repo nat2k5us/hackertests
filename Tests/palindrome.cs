@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 namespace hackertests.Tests
 {
-    public class Palindrome: ITestProgram
+    public class Palindrome : ITestProgram
     {
         public Palindrome()
         {
@@ -24,7 +24,7 @@ namespace hackertests.Tests
         public bool isPalindromeAble(string input)
         {
             if (string.IsNullOrEmpty(input)) return false;
-           // if (input.Count() % 2 != 0) return false;
+            // if (input.Count() % 2 != 0) return false;
 
             var dictionary = new Dictionary<char, int>();
             var dictionaryPossibleItems = new Dictionary<char, bool>();
@@ -50,7 +50,7 @@ namespace hackertests.Tests
             char centerChar;
             if (falseItems.Count() == 1)
                 centerChar = falseItems.ElementAt(0).Key;
-            
+
             return true;
 
         }

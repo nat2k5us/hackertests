@@ -33,7 +33,7 @@ namespace hackertests.Tests
             target = new Adaptor();
         }
 
-       public TestProgramName GetName(TestProgramName name)
+        public TestProgramName GetName(TestProgramName name)
         {
             return TestProgramName.AdapterClient;
         }
@@ -53,10 +53,10 @@ namespace hackertests.Tests
         }
         public void ClientRequiredMethod()
         {
-                  System.Console.WriteLine($"Adaptor implements the ITarget interface " + 
-                  "and has access to the legacy system and able to make calls to it.");
+            System.Console.WriteLine($"Adaptor implements the ITarget interface " +
+            "and has access to the legacy system and able to make calls to it.");
             legacysystem.legacyMethod();
         }
     }
-  
+
 }
