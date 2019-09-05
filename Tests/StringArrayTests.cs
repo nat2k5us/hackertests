@@ -5,9 +5,9 @@ namespace hackertests.Tests
 {
     public class StringArrayTests : ITestProgram
     {
-        public object GetObject()
+        public TestProgramName GetName(TestProgramName name)
         {
-           return $"StringArray Tests";
+            return TestProgramName.AdapterClient;
         }
 
         public string ReverseString(string str)

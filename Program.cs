@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using hackertests.Tests;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Logging;
 
 namespace hackertests
@@ -22,19 +23,56 @@ namespace hackertests
         private static void ConfigureServices(IServiceCollection serviceCollection)
         {
             // add services
-            serviceCollection.AddSingleton<ITestProgram, FizzBizz>();
-            serviceCollection.AddTransient<ITestProgram, ArrayTests>();
-            serviceCollection.AddTransient<ITestProgram, Fibonacci>();
-            serviceCollection.AddTransient<ITestProgram, DictionaryWords>();
-            serviceCollection.AddTransient<ITestProgram, MlastElement>();
-            serviceCollection.AddTransient<ITestProgram, Palindrome>();
-            serviceCollection.AddTransient<ITestProgram, Recursion>();
-            serviceCollection.AddTransient<ITestProgram, StragetyClient>();
-            serviceCollection.AddTransient<ITestProgram, AdapterClient>();
-            serviceCollection.AddTransient<ITestProgram, StringArrayTests>();
-            serviceCollection.AddTransient<ITestProgram, TestAges>();
+            serviceCollection.AddTransient<FizzBizz>();
+            serviceCollection.AddTransient<ArrayTests>();
+            serviceCollection.AddTransient<Fibonacci>();
+            serviceCollection.AddTransient<DictionaryWords>();
+            serviceCollection.AddTransient<MlastElement>();
+            serviceCollection.AddTransient<Palindrome>();
+            serviceCollection.AddTransient<Recursion>();
+            serviceCollection.AddTransient<StragetyClient>();
+            serviceCollection.AddTransient<AdapterClient>();
+            serviceCollection.AddTransient<StringArrayTests>();
+            serviceCollection.AddTransient<TestAges>();
             // add app
-            serviceCollection.AddTransient<ConsoleApplication>();
+
+            serviceCollection.AddTransient<Func<TestProgramName, ITestProgram>>(
+                serviceProvider => key =>
+            {
+                switch (key)
+                {
+                    case TestProgramName.FizzBizz:
+                        return serviceProvider.GetService<FizzBizz>();
+                    case TestProgramName.AdapterClient:
+                        return serviceProvider.GetService<AdapterClient>();
+                    case TestProgramName.ArrayTests:
+                        return serviceProvider.GetService<ArrayTests>();
+                    case TestProgramName.DictionaryWords:
+                        return serviceProvider.GetService<DictionaryWords>();
+                    case TestProgramName.Fibonacci:
+                        return serviceProvider.GetService<Fibonacci>();
+                    case TestProgramName.MlastElement:
+                        return serviceProvider.GetService<MlastElement>();
+                    case TestProgramName.Palindrome:
+                        return serviceProvider.GetService<Palindrome>();
+                    case TestProgramName.Recursion:
+                        return serviceProvider.GetService<Recursion>();
+                    default:
+                        throw new KeyNotFoundException();
+                }
+            });
+            // serviceCollection.AddTransient<ConsoleApplication>();
+        }
+
+        private static IEnumerable<Type> GetAllTypesOf<T>()
+        {
+            var platform = Environment.OSVersion.Platform.ToString();
+            var runtimeAssemblyNames = DependencyContext.Default.GetRuntimeAssemblyNames(platform);
+
+            return runtimeAssemblyNames
+                .Select(Assembly.Load)
+                .SelectMany(a => a.ExportedTypes)
+                .Where(t => typeof(T).IsAssignableFrom(t));
         }
 
         static void Main(string[] args)
@@ -46,9 +84,19 @@ namespace hackertests
             // create service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            // entry to run app
-            serviceProvider.GetService<ConsoleApplication>().Run();
 
+          //  var programs = GetAllTypesOf<ITestProgram>();
+
+          serviceProvider.GetService<Fibonacci>().RunTests();
+          serviceProvider.GetService<AdapterClient>().RunTests();
+          serviceProvider.GetService<FizzBizz>().RunTests();
+          serviceProvider.GetService<StragetyClient>().RunTests();
+          serviceProvider.GetService<ArrayTests>().RunTests();
+          serviceProvider.GetService<TestAges>().RunTests();
+          serviceProvider.GetService<Palindrome>().RunTests();
+          serviceProvider.GetService<MlastElement>().RunTests();
+            
+          
             string directoryName = AppDomain.CurrentDomain.BaseDirectory;
             if (directoryName == null) return;
             Console.WriteLine($"dir: {directoryName}");

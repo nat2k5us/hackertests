@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace hackertests.Tests
 {
@@ -14,12 +15,12 @@ namespace hackertests.Tests
 
         public void ProcessProgram(object name)
         {
-            var allPrograms = _programs.Where(e => e.ITestProgram(name));
+            // var allPrograms = _programs.Where(e => e.GetObject() );
 
-            foreach (var item in allPrograms)
-            {
-                item.Enrich(name);
-            }
+            // foreach (var item in allPrograms)
+            // {
+            //     item.Enrich(name);
+            // }
         }
 
     }

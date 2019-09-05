@@ -2,6 +2,7 @@ using hackertests.Tests;
 
 namespace hackertests
 {
+
     public class ConsoleApplication
     {
         private readonly ITestProgram _testService;
@@ -12,8 +13,8 @@ namespace hackertests
         }
         public void Run()
         {
-             _testService.RunTests();
-           // System.Console.ReadKey();
+            _testService.RunTests();
+            // System.Console.ReadKey();
         }
     }
 }

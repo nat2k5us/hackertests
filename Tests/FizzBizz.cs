@@ -31,9 +31,9 @@ namespace hackertests.Tests
             System.Console.WriteLine(consoleMessage);
         }
 
-        public object GetObject()
+         public TestProgramName GetName(TestProgramName name)
         {
-            return $"FizzBizz";
+            return TestProgramName.FizzBizz;
         }
 
         public void RunTests()

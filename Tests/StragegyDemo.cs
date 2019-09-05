@@ -59,9 +59,9 @@ namespace hackertests.Tests
             commutestrategy = new PersonelCar();
         }
 
-        public object GetObject()
+         public TestProgramName GetName(TestProgramName name)
         {
-           return $"Stratagy Pattern";
+            return TestProgramName.StragetyClient;
         }
 
         public void RunTests()

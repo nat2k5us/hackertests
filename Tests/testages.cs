@@ -72,9 +72,9 @@ namespace hackertests.Tests
             this._neighbours.Clear();
         }
 
-        public object GetObject()
+          public TestProgramName GetName(TestProgramName name)
         {
-            return $"Test Ages";
+            return TestProgramName.TestAges;
         }
     }
 }

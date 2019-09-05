@@ -33,9 +33,9 @@ namespace hackertests.Tests
             target = new Adaptor();
         }
 
-        public object GetObject()
+       public TestProgramName GetName(TestProgramName name)
         {
-            return $"Adapter Pattern";
+            return TestProgramName.AdapterClient;
         }
 
         public void RunTests()

@@ -2,7 +2,7 @@ namespace hackertests.Tests
 {
     public interface ITestProgram
     {
-        object GetObject();
+       TestProgramName GetName(TestProgramName name);
        
          void RunTests();
     }

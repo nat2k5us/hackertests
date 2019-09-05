@@ -11,9 +11,9 @@ namespace hackertests.Tests
     
         }
 
-        public object GetObject()
+         public TestProgramName GetName(TestProgramName name)
         {
-            return $"Recursion";
+            return TestProgramName.Recursion;
         }
 
         public void RunTests()

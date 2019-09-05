@@ -14,9 +14,9 @@ namespace hackertests.Tests
 
         }
 
-         public object GetObject()
+         public TestProgramName GetName(TestProgramName name)
         {
-            return $"MLast Element";
+            return TestProgramName.MlastElement;
         }
 
         public  void RunTests()

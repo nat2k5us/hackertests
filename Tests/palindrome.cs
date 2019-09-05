@@ -66,9 +66,9 @@ namespace hackertests.Tests
             System.Console.WriteLine($"is isPalindromeAble {test3} {isPalindromeAble(test3)}");
         }
 
-        public object GetObject()
+        public TestProgramName GetName(TestProgramName name)
         {
-            return $"Palindrome Pattern";
+            return TestProgramName.Palindrome;
         }
     }
 }
