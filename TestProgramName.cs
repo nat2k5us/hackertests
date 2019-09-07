@@ -13,7 +13,7 @@ namespace hackertests
         AdapterClient = 8,
         StringArrayTests = 9,
         TestAges = 10,
-        ProxyPattern = 11
-
+        ProxyPattern = 11,
+        LeetAddTwoNumberLists = 12
     }
 }

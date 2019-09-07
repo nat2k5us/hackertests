@@ -23,7 +23,6 @@ namespace hackertests.Tests
         {
             List<int> arryNumbers = new List<int> { 10, 200, 3, 4000, 5 };
             Console.WriteLine($"Mlast: { GetMlastElement(arryNumbers, 8) }");
-
             Console.WriteLine($"Mlast: { GetMlastElement(arryNumbers, 3) }");
         }
 

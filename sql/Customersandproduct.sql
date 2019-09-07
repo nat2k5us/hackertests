@@ -24,7 +24,7 @@ insert into CUSTOMERS (ID,NAME, PostalCode) Values (2,'cherry', '75612');
 insert into CUSTOMERS (ID,NAME, PostalCode) Values (3,'Mike', '75110');
 insert into CUSTOMERS (ID,NAME, PostalCode) Values (4,'Joe', '75440');
 
- IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='ProductMaster' and xtype='U')
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='ProductMaster' and xtype='U')
 CREATE TABLE  ProductMaster(
    ID   INT              NOT NULL,
    NAME VARCHAR (20)     NOT NULL,

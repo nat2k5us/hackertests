@@ -35,6 +35,7 @@ namespace hackertests
             serviceCollection.AddTransient<StringArrayTests>();
             serviceCollection.AddTransient<TestAges>();
             serviceCollection.AddTransient<ProxyPatternClient>();
+            serviceCollection.AddTransient<LeetAddTwoNumbers>();
             // add app
 
             serviceCollection.AddTransient<Func<TestProgramName, ITestProgram>>(
@@ -60,6 +61,8 @@ namespace hackertests
                         return serviceProvider.GetService<Recursion>();
                     case TestProgramName.ProxyPattern:
                         return serviceProvider.GetService<ProxyPatternClient>();
+                    case TestProgramName.LeetAddTwoNumberLists:
+                        return serviceProvider.GetService<LeetAddTwoNumbers>();
                     default:
                         throw new KeyNotFoundException();
                 }
@@ -86,22 +89,23 @@ namespace hackertests
 
             // create service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
-          //  var programs = GetAllTypesOf<ITestProgram>();
+            //  var programs = GetAllTypesOf<ITestProgram>();
 
-          serviceProvider.GetService<Fibonacci>().RunTests();
-          serviceProvider.GetService<AdapterClient>().RunTests();
-          serviceProvider.GetService<FizzBizz>().RunTests();
-          serviceProvider.GetService<StragetyClient>().RunTests();
-          serviceProvider.GetService<ArrayTests>().RunTests();
-          serviceProvider.GetService<TestAges>().RunTests();
-          serviceProvider.GetService<Palindrome>().RunTests();
-          serviceProvider.GetService<MlastElement>().RunTests();
-          serviceProvider.GetService<ProxyPatternClient>().RunTests();
-            
-          
+            serviceProvider.GetService<Fibonacci>().RunTests();
+            serviceProvider.GetService<AdapterClient>().RunTests();
+            serviceProvider.GetService<FizzBizz>().RunTests();
+            serviceProvider.GetService<StragetyClient>().RunTests();
+            serviceProvider.GetService<ArrayTests>().RunTests();
+            serviceProvider.GetService<TestAges>().RunTests();
+            serviceProvider.GetService<Palindrome>().RunTests();
+            serviceProvider.GetService<MlastElement>().RunTests();
+            serviceProvider.GetService<ProxyPatternClient>().RunTests();
+            serviceProvider.GetService<LeetAddTwoNumbers>().RunTests();
+
+
             string directoryName = AppDomain.CurrentDomain.BaseDirectory;
             if (directoryName == null) return;
-                Console.WriteLine($"dir: {directoryName}");
+            Console.WriteLine($"dir: {directoryName}");
 
         }
     }
