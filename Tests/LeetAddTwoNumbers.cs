@@ -22,8 +22,13 @@ namespace hackertests.Tests
             int carryOver = 0;
             while (i < maxItems)
             {
-                var temp = l1[i] + l2[i] + carryOver;
-                carryOver = 0;
+                if (carryOver > 0)
+                {
+                    result[i - 2] += carryOver;
+                    carryOver = 0;
+                }
+                var temp = l1[i] + l2[i];
+
                 if (temp > 9)
                 {
                     carryOver = temp - 9;
@@ -39,8 +44,8 @@ namespace hackertests.Tests
 
         public void RunTests()
         {
-            var list1 = new List<int> { 2, 5, 1 };
-            var list2 = new List<int> { 3, 6, 1 };
+            var list1 = new List<int> { 2, 4, 3 };
+            var list2 = new List<int> { 5, 6, 4 };
 
             System.Console.WriteLine(string.Join(", ", list1));
             System.Console.WriteLine(string.Join(", ", list2));

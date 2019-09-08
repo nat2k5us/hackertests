@@ -14,6 +14,7 @@ namespace hackertests
         StringArrayTests = 9,
         TestAges = 10,
         ProxyPattern = 11,
-        LeetAddTwoNumberLists = 12
+        LeetAddTwoNumberLists = 12,
+        LeetLongestSubString = 13
     }
 }
