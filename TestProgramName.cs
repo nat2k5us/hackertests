@@ -15,6 +15,7 @@ namespace hackertests
         TestAges = 10,
         ProxyPattern = 11,
         LeetAddTwoNumberLists = 12,
-        LeetLongestSubString = 13
+        LeetLongestSubString = 13,
+        IslandCount = 14
     }
 }

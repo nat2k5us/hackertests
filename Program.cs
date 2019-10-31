@@ -37,6 +37,7 @@ namespace hackertests
             serviceCollection.AddTransient<ProxyPatternClient>();
             serviceCollection.AddTransient<LeetAddTwoNumbers>();
             serviceCollection.AddTransient<LeetLongestSubString>();
+            serviceCollection.AddTransient<IslandCount>();
             // add app
 
             serviceCollection.AddTransient<Func<TestProgramName, ITestProgram>>(
@@ -66,6 +67,8 @@ namespace hackertests
                         return serviceProvider.GetService<LeetAddTwoNumbers>();
                     case TestProgramName.LeetLongestSubString:
                         return serviceProvider.GetService<LeetLongestSubString>();
+                    case TestProgramName.IslandCount:
+                        return serviceProvider.GetService<IslandCount>();
                     default:
                         throw new KeyNotFoundException();
                 }
@@ -105,7 +108,7 @@ namespace hackertests
             serviceProvider.GetService<ProxyPatternClient>().RunTests();
             serviceProvider.GetService<LeetAddTwoNumbers>().RunTests();
             serviceProvider.GetService<LeetLongestSubString>().RunTests();
-
+            serviceProvider.GetService<IslandCount>().RunTests();
 
             string directoryName = AppDomain.CurrentDomain.BaseDirectory;
             if (directoryName == null) return;
