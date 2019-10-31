@@ -19,7 +19,7 @@ namespace hackertests.Tests
     {
         public TestProgramName GetName(TestProgramName name)
         {
-            return TestProgramName.LeetAddTwoNumberLists;
+            return TestProgramName.IslandCount;
         }
 
         static Dictionary<int, List<Point>> foundsIslandsLocations = new Dictionary<int, List<Point>>();
