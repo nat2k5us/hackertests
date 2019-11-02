@@ -2,16 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-// {
-// {0, 0, 1, 1, 0, 1, 1, 1},
-// {0, 1, 0, 1, 0, 1, 1, 1},
-// {0, 0, 0, 1, 0, 1, 2, 3},
-// {8, 9, 0, 1, 0, 1, 2, 3},
-// {0, 1, 2, 3, 0, 1, 2, 3},
-// {4, 5, 6, 7, 0, 1, 2, 3},
-// {8, 9, 10, 11, 0, 1, 2, 3},
-// {8, 9, 10, 11, 0, 1, 2, 3}
-// };
+
 
 namespace hackertests.Tests
 {
@@ -45,8 +36,8 @@ namespace hackertests.Tests
                             pointsAlreadyTraversed.AddRange(IslandPoints);
                             foundsIslandsLocations.Add(maxIslands, IslandPoints);
                         }
-                        else
-                            System.Console.WriteLine("Zero Points !!!!!!!!");
+                        // else
+                        //    System.Console.WriteLine("Zero Points !!!!!!!!");
                     }
                 }
             }
@@ -66,7 +57,6 @@ namespace hackertests.Tests
                     if (matrix[row, column] == 1)
                     {
                         maxIslands += getIslandSize(matrix, row, column);
-
                     }
                 }
             }
@@ -82,13 +72,15 @@ namespace hackertests.Tests
                 return returnPoints;
             int row = rowstart;
             int column = columnStart;
+
+            // Right
             while (column++ < matrix.GetLength(1) - 1 && matrix[row, column] != 0)
             {
                 var pt = new Point(row, column);
                 if (!pointsAlreadyTraversed.Contains(pt))
                     returnPoints.Add(pt);
-
             }
+            // Down
             row = rowstart;
             column = columnStart;
             while (row++ < matrix.GetLength(0) - 1 && matrix[row, column] != 0)
@@ -96,11 +88,46 @@ namespace hackertests.Tests
                 var pt = new Point(row, column);
                 if (!pointsAlreadyTraversed.Contains(pt))
                     returnPoints.Add(pt);
-
+            }
+            // South-East ↘
+            row = rowstart;
+            column = columnStart;
+            while (row++ < matrix.GetLength(0) - 1 && column++ < matrix.GetLength(1) - 1 && matrix[row, column] != 0)
+            {
+                var pt = new Point(row, column);
+                if (!pointsAlreadyTraversed.Contains(pt))
+                    returnPoints.Add(pt);
+            }
+            // South-West   ↙
+            row = rowstart;
+            column = columnStart;
+            while (row++ < matrix.GetLength(0) - 1 && column-- < 0 && matrix[row, column] != 0)
+            {
+                var pt = new Point(row, column);
+                if (!pointsAlreadyTraversed.Contains(pt))
+                    returnPoints.Add(pt);
             }
             row = rowstart;
             column = columnStart;
             while (column-- > 0 && matrix[row, column] != 0)
+            {
+                var pt = new Point(row, column);
+                if (!pointsAlreadyTraversed.Contains(pt))
+                    returnPoints.Add(pt);
+            }
+            row = rowstart;
+            column = columnStart;
+            // North-West   ↖
+            while (row-- < 0 && column-- < 0 && matrix[row, column] != 0)
+            {
+                var pt = new Point(row, column);
+                if (!pointsAlreadyTraversed.Contains(pt))
+                    returnPoints.Add(pt);
+            }
+            row = rowstart;
+            column = columnStart;
+            // North-East   ↗
+            while (row++ < 0 && column++ < matrix.GetLength(1) - 1 && matrix[row, column] != 0)
             {
                 var pt = new Point(row, column);
                 if (!pointsAlreadyTraversed.Contains(pt))
@@ -115,7 +142,6 @@ namespace hackertests.Tests
                     returnPoints.Add(pt);
             }
             return returnPoints;
-
         }
 
         public static int getIslandSize(int[,] matrix, int row, int column)
@@ -140,13 +166,20 @@ namespace hackertests.Tests
             var rand = new Random(DateTime.Now.Millisecond);
             Console.WriteLine("IsLand Count!");
             int dim = 8;
-
-            var matrix = new int[dim, dim];
-
-            PrintRandomMatrix(rand, dim, matrix);
-
-
-            System.Console.WriteLine($"Number of Islands {NumIslands(matrix)}");
+            var sampleMatrix = new int[,]{
+                    {0, 0, 1, 1, 0, 1, 1, 1},
+                    {0, 1, 0, 1, 0, 1, 1, 1},
+                    {0, 0, 0, 1, 0, 1, 1, 1},
+                    {1, 1, 0, 1, 0, 1, 1, 1},
+                    {0, 1, 1, 1, 0, 1, 1, 1},
+                    {1, 1, 1, 1, 0, 1, 1, 1},
+                    {1, 1, 1, 1, 0, 1, 1, 1},
+                    {1, 1, 1, 1, 0, 1, 1, 1}
+                };
+            var matrix = GenerateRandomMatrix(rand, dim);
+            PrintMatrix(sampleMatrix);
+            System.Console.WriteLine();
+            System.Console.WriteLine($"Number of Islands {NumIslands(sampleMatrix)}");
 
             foreach (var key in foundsIslandsLocations.Keys)
             {
@@ -156,13 +189,13 @@ namespace hackertests.Tests
                 //   System.Console.WriteLine($"################## End {key} #######################");
             }
 
-            System.Console.WriteLine($"Number of Islands Using Recursion {NumIslandsUsingRecursion(matrix)}");
+            System.Console.WriteLine($"Number of Islands Using Recursion {NumIslandsUsingRecursion(sampleMatrix)}");
             System.Console.WriteLine();
-
         }
 
-        private static void PrintRandomMatrix(Random rand, int dim, int[,] matrix)
+        private static int[,] GenerateRandomMatrix(Random rand, int dim)
         {
+            var matrix = new int[dim, dim];
             for (int i = 0; i < dim; i++)
             {
                 System.Console.WriteLine();
@@ -171,7 +204,22 @@ namespace hackertests.Tests
                     int nextVal = rand.Next(2);
                     matrix[i, j] = nextVal;
                     //System.Console.Write($"[{i},{j}] = {nextVal} ");
-                    System.Console.Write($"{nextVal} ");
+                    // System.Console.Write($"{nextVal} ");
+                }
+            }
+
+            return matrix;
+        }
+
+        private static void PrintMatrix(int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                System.Console.WriteLine();
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+
+                    System.Console.Write($"{ matrix[i, j]} ");
                 }
             }
         }
@@ -192,7 +240,10 @@ namespace hackertests.Tests
                         //  Console.ResetColor();
                     }
                     else
-                        System.Console.Write("_");
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        System.Console.Write("0");
+                    }
                 }
                 System.Console.WriteLine();
             }

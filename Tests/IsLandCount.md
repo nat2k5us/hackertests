@@ -1,4 +1,4 @@
-## Sample Output - only searching L R U D - no Diagnol
+## Sample Output - only searching Left Right Up Down - no Diagnol
 ```
 0 0 0 0 1 0 0 1 
 0 0 0 0 0 0 1 0 

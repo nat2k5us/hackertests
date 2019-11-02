@@ -16,6 +16,7 @@ namespace hackertests
         ProxyPattern = 11,
         LeetAddTwoNumberLists = 12,
         LeetLongestSubString = 13,
-        IslandCount = 14
+        IslandCount = 14,
+        MultiColorLine = 15
     }
 }

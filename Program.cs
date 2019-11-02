@@ -38,6 +38,7 @@ namespace hackertests
             serviceCollection.AddTransient<LeetAddTwoNumbers>();
             serviceCollection.AddTransient<LeetLongestSubString>();
             serviceCollection.AddTransient<IslandCount>();
+            serviceCollection.AddTransient<MultiColorLineConsole>();
             // add app
 
             serviceCollection.AddTransient<Func<TestProgramName, ITestProgram>>(
@@ -69,6 +70,8 @@ namespace hackertests
                         return serviceProvider.GetService<LeetLongestSubString>();
                     case TestProgramName.IslandCount:
                         return serviceProvider.GetService<IslandCount>();
+                    case TestProgramName.MultiColorLine:
+                        return serviceProvider.GetService<MultiColorLineConsole>();
                     default:
                         throw new KeyNotFoundException();
                 }
@@ -109,7 +112,9 @@ namespace hackertests
             serviceProvider.GetService<LeetAddTwoNumbers>().RunTests();
             serviceProvider.GetService<LeetLongestSubString>().RunTests();
             serviceProvider.GetService<IslandCount>().RunTests();
+            serviceProvider.GetService<MultiColorLineConsole>().RunTests();
 
+            System.Console.WriteLine();
             string directoryName = AppDomain.CurrentDomain.BaseDirectory;
             if (directoryName == null) return;
             Console.WriteLine($"dir: {directoryName}");
