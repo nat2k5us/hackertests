@@ -17,6 +17,7 @@ namespace hackertests
         LeetAddTwoNumberLists = 12,
         LeetLongestSubString = 13,
         IslandCount = 14,
-        MultiColorLine = 15
+        MultiColorLine = 15,
+        DrawConsoleCircle = 16
     }
 }
