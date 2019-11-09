@@ -117,10 +117,7 @@ namespace hackertests
             serviceProvider.GetService<IslandCount>().RunTests();
             serviceProvider.GetService<MultiColorLineConsole>().RunTests();
             serviceProvider.GetService<DrawConsoleCircle>().RunTests();
-            // System.Console.WriteLine();
-            // string directoryName = AppDomain.CurrentDomain.BaseDirectory;
-            // if (directoryName == null) return;
-            // Console.WriteLine($"dir: {directoryName}");
+           
 
         }
     }
