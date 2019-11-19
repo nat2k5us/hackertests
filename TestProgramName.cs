@@ -19,6 +19,7 @@ namespace hackertests
         IslandCount = 14,
         MultiColorLine = 15,
         DrawConsoleCircle = 16,
-        DirectoryTests = 17
+        DirectoryTests = 17,
+        FacadeClient = 18
     }
 }

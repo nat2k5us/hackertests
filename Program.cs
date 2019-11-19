@@ -39,6 +39,7 @@ namespace hackertests
             serviceCollection.AddTransient<LeetLongestSubString>();
             serviceCollection.AddTransient<IslandCount>();
             serviceCollection.AddTransient<MultiColorLineConsole>();
+            serviceCollection.AddTransient<FacadeClient>();
             serviceCollection.AddTransient<DrawConsoleCircle>();
             // add app
 
@@ -73,6 +74,8 @@ namespace hackertests
                         return serviceProvider.GetService<IslandCount>();
                     case TestProgramName.MultiColorLine:
                         return serviceProvider.GetService<MultiColorLineConsole>();
+                    case TestProgramName.FacadeClient:
+                        return serviceProvider.GetService<FacadeClient>();
                     case TestProgramName.DrawConsoleCircle:
                         return serviceProvider.GetService<DrawConsoleCircle>();
                     default:
@@ -107,6 +110,7 @@ namespace hackertests
             serviceProvider.GetService<AdapterClient>().RunTests();
             serviceProvider.GetService<FizzBizz>().RunTests();
             serviceProvider.GetService<StragetyClient>().RunTests();
+            serviceProvider.GetService<FacadeClient>().RunTests();
             serviceProvider.GetService<ArrayTests>().RunTests();
             serviceProvider.GetService<TestAges>().RunTests();
             serviceProvider.GetService<Palindrome>().RunTests();
@@ -116,8 +120,9 @@ namespace hackertests
             serviceProvider.GetService<LeetLongestSubString>().RunTests();
             serviceProvider.GetService<IslandCount>().RunTests();
             serviceProvider.GetService<MultiColorLineConsole>().RunTests();
+
             serviceProvider.GetService<DrawConsoleCircle>().RunTests();
-           
+
 
         }
     }
