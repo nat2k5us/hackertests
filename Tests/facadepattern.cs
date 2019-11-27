@@ -1,8 +1,8 @@
 using System.Reflection;
 namespace hackertests.Tests
 {
-    // Facade pattern helps hide complex of the system by providing an easy interface 
-    // to access the system. Adds an interface to existing system to hide its complexities.
+    // Facade pattern helps hide complexity of the system by providing an easy interface 
+    // to access the system. Adds an simple interface to existing system to hide its complexities.
     
     // Players in this pattern 
     // 1. Complex system 
@@ -70,10 +70,9 @@ namespace hackertests.Tests
        }
     }
 
-    // 3. client want to call the legacy method but cannot do to legacy reasons
+    // 3. client
     public class FacadeClient : ITestProgram
-    {
-     
+    {     
        ShopComplexFacade facade = new ShopComplexFacade();
 
         public TestProgramName GetName(TestProgramName name)
@@ -82,11 +81,8 @@ namespace hackertests.Tests
         }
 
         public void RunTests()
-        {
-           
+        {           
            facade.CreateCompleteShop();
         }
     }
-  
-
 }
